@@ -10,7 +10,7 @@ pipeline {
       steps{
         script {
           sh '''
-            mkdir -p /var/lib/jenkins/Jenkinstestfolder
+            sudo mkdir -p /var/lib/jenkins/Jenkinstestfolder
           '''
         }
       }
@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
           sh '''
-            ls -l /var/lib/jenkins/
+            sudo ls -l /var/lib/jenkins/
           '''
         }
       }
