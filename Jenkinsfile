@@ -1,21 +1,19 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Create a file') {
-            steps {
-                sh '''
-                mkdir -p /var/lib/jenkins/testfolderByJenkins
-                ls -la /var/lib/jenkins
-                '''
-            }
+  environment {
+    PROJECT = "TEST"
+  }
+
+  stages {
+    stage ("Build") {
+      steps{
+        script {
+          sh '''
+            mkdir -p /var/lib/jenkins/Jenkinstestfolder
+          '''
         }
-        stage('Delete the testfolderByJenkins folder') {
-            steps {
-                sh '''
-                rm -rf /var/lib/jenkins/testfolderByJenkins
-                '''
-            }
-        }
+      }
     }
+  }
 }
