@@ -15,5 +15,14 @@ pipeline {
         }
       }
     }
+    stage ("Check folder") {
+      steps {
+        script {
+          sh '''
+            ls -l /var/lib/jenkins/Jenkinstestfolder
+          '''
+        }
+      }
+    }
   }
 }
