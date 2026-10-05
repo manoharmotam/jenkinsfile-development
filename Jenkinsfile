@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello World') {
+        stage('Create a file') {
             steps {
-                echo 'Hello World'
+                sh '''
+                sudo mkdir -p /home/ec2-user/testfolderByJenkins
+                ls -la /home/ec2-user
+                ''''
             }
         }
     }
