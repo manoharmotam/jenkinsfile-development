@@ -14,7 +14,6 @@ pipeline {
             steps {
                 sh '''
                 rm -rf /var/lib/jenkins/testfolderByJenkins
-                ls -la /var/lib/jenkins | grep -i "testfolderByJenkins"
                 '''
             }
         }
