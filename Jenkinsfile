@@ -5,8 +5,8 @@ pipeline {
         stage('Create a file') {
             steps {
                 sh '''
-                mkdir -p /home/ec2-user/testfolderByJenkins
-                ls -la /home/ec2-user
+                mkdir -p /var/lib/jenkins/testfolderByJenkins
+                ls -la /var/lib/jenkins
                 '''
             }
         }
