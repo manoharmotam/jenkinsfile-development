@@ -10,5 +10,13 @@ pipeline {
                 '''
             }
         }
+        stage('Delete the testfolderByJenkins folder') {
+            steps {
+                sh '''
+                rm -rf /var/lib/jenkins/testfolderByJenkins
+                ls -la /var/lib/jenkins | grep -i "testfolderByJenkins"
+                '''
+            }
+        }
     }
 }
