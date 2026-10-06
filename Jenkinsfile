@@ -13,7 +13,7 @@ pipeline {
                         sh '''
                             aws ec2 run-instances \
                             --image-id ami-0c7217cdde317cfec \
-                            --instance-type t2.micro \
+                            --instance-type t3.micro \
                             --key-name 'ami2'
                         '''
                     }
