@@ -1,23 +1,19 @@
 pipeline {
- 
-    agent any
-    environment {
-        AWS_CRED_ID = 'aws-user'
-        AWS_REGION = 'us-east-1'
-	AMI_ID = 'ami-0220d79f3f480ecf5'
+    agent {
+        label 'devops-base'
     }
+
     stages {
-        stage ('Create EC2 instance') {
+        stage('Agent verification') {
             steps {
-                withAWS(credentials: "${AWS_CRED_ID}", region: "${AWS_REGION}") {
-                    script {
-                        sh '''
-                            aws ec2 run-instances \
-                            --image-id "${AMI_ID}" \
-                            --instance-type t3.micro \
-                        '''
-                    }
-                }
+                sh '''
+                    echo "Running on: $(hostname)"
+                    java -version
+                    git --version
+                    python3 --version
+                    curl --version | head -n 1
+                    jq --version
+                '''
             }
         }
     }
