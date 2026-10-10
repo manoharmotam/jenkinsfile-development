@@ -1,5 +1,5 @@
 pipeline {
-
+ 
     agent any
     environment {
         AWS_CRED_ID = 'aws-user'
