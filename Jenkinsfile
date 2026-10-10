@@ -4,6 +4,7 @@ pipeline {
     environment {
         AWS_CRED_ID = 'aws-user'
         AWS_REGION = 'us-east-1'
+	AMI_ID = 'ami-0220d79f3f480ecf5'
     }
     stages {
         stage ('Create EC2 instance') {
@@ -12,9 +13,8 @@ pipeline {
                     script {
                         sh '''
                             aws ec2 run-instances \
-                            --image-id ami-0c7217cdde317cfec \
+                            --image-id "${AMI_ID}" \
                             --instance-type t3.micro \
-                            --key-name 'ami2'
                         '''
                     }
                 }
