@@ -8,9 +8,9 @@ pipeline {
                 sh '''
                     set -eu
                     echo "Agent-hostname: $(hostname)"
-                    aws configure ls
+                    aws configure list
                 '''
             }
         }
     }
- }
+}
