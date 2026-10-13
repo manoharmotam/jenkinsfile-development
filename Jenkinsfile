@@ -1,18 +1,14 @@
 pipeline {
     agent {
-        label 'devops-base'
+        aws-agent
     }
-
     stages {
-        stage('Agent verification') {
+        stage ("List S3 buckets") {
             steps {
                 sh '''
-                    echo "Running on: $(hostname)"
-                    java -version
-                    git --version
-                    python3 --version
-                    curl --version | head -n 1
-                    jq --version
+                    set -eu
+                    echo "Agent-hostname: $(hostname)"
+                    aws configure ls
                 '''
             }
         }
