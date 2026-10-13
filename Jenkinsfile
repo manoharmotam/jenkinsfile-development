@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        aws-agent
+        label 'aws-agent'
     }
     stages {
         stage ("List S3 buckets") {
