@@ -18,7 +18,7 @@ pipeline {
        }
 	stage ("Listing S3 Buckets in the Account") {
 	    steps {
-		withAWS(credentials: '${AWS_CRED_ID}', region:'${AWS_REGION}') {
+		withAWS(credentials: "${AWS_CRED_ID}", region:"${AWS_REGION}") {
 		sh '''
 		    aws s3 ls
 		'''
