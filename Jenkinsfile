@@ -10,7 +10,7 @@ pipeline {
        stage ("Check AWS configuration") {
            steps {
                withAWS(credentials: '${AWS_CRED_ID}', region: '${AWS_REGION}') {
-     	sh '''
+ 	    	sh '''
                    set -eu
                    echo "Agent-hostname: $(hostname)"
                    aws configure list
